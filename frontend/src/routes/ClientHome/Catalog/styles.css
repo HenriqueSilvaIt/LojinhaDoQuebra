@@ -1,0 +1,52 @@
+
+catalog-section{
+    padding: 20px 0;
+}
+
+.dsc-catalog-cards {
+    display:grid;
+    grid-gap: 20px;/* fazendo espaçamento entre um card e outro*/
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr)); /*primeiro argumento é pree
+    nchimento automático e o segundo argumento é é um minimo e o máximo
+    então quando a tela for expandindo e ating a largura minima do card
+     ele acrescenta mais um, e máximo colocamndo a fração que é 1*/ 
+}
+
+.dsc-section-title  {
+    text-align: center;
+    color: var(--color-font-primary);
+}
+
+.dsc-whatsapp img{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+   
+    bottom: 40px;
+   /*background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+      z-index: 100;*/
+    right: 15px;
+  
+}
+
+@media(min-width: 576px) {
+    .dsc-whatsapp img{
+        position: fixed;
+        width: 80px;
+        height: 80px;
+       
+        bottom: 40px;
+       /*background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+          z-index: 100;*/
+        right:35px;
+      
+    }
+}

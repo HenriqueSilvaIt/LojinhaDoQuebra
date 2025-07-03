@@ -1,0 +1,17 @@
+.dsc-category {
+    background-color: var(--color-bg-tertiary);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-font-tertiary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px; /* colocando
+      espaço interno nas laterais ao texto
+      da categoria, no topo não precisa
+      porque a altura já pega */
+    margin-right: 20px;
+  }

@@ -1,0 +1,34 @@
+.dsc-product-details-top {
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* alinha no centro na horizontal*/
+  }
+  
+  .dsc-product-details-top img {
+    width: 150px;
+    display: flex;
+  }
+  
+  .dsc-product-details-bottom {
+    /*card da descrição do produto */
+    padding: 10px 20px; /* 10 no topo enos demais lados 20 px */
+  }
+  
+  .dsc-product-details-bottom h3 {
+    /*preço do produto */
+    color: var(--color-font-secondary);
+    font-size: 20px;
+    /*todo h ja vem negrito então n precisa colocar */
+  }
+  
+  .dsc-product-details-bottom h4 {
+    color: var(--color-font-primary);
+    font-size: 12px;
+  }
+  
+  .dsc-product-details-bottom p {
+    color: var(--color-font-primary);
+    font-size: 12px;
+    margin: 10px 0; /* 10px na vertical
+      e 0 nas laterais */
+  }

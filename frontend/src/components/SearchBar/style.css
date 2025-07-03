@@ -1,0 +1,54 @@
+/*************************************************************************************/
+/*search-bar-style*/
+
+.dsc-search-bar {
+    height: 40px;
+    display: flex;
+    color: var(--color-font-primary);
+  }
+  
+  .dsc-search-bar input {
+    border: 1px solid var(--color-card-border);
+  }
+  
+  .dsc-search-bar input {
+    width: calc(100% - 80px);
+    border-right: none;
+    border-left: none;
+    padding: 0 10px; /* colocando
+      espaço dentro do place holder*/
+    font-size: 16px;
+    color: var(
+      --color-font-primary
+    ); /*
+      cor da barra de pesquisa quando digita */
+  }
+  
+  .dsc-search-bar input ::placeholder {
+    color: var(
+      --color-font-placeholder
+    ); /*
+      cor do place holder 'nome do produto' */
+  }
+  .dsc-search-bar input:focus {
+    /* input quando tiver clicado na caixa
+      de texto*/
+    outline: none; /* ai n vai ficar
+      ficar com uma borda quando clicarmos */
+  }
+  
+  .dsc-search-bar button {
+    width: 40px;
+    color: var(--color-font-primary); /* cor dos botões*/
+    cursor: pointer;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    border: 1px solid var(--color-card-border);
+  }
+  
+  .dsc-search-bar button[type="submit"] {
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid var(--color-card-border);
+  }
+ 

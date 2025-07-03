@@ -1,0 +1,200 @@
+#product-listing-section {
+    padding: 20px 0;
+}
+
+
+.dsc-product-listing-image { /* imagem do computador da tabela*/
+
+    width: 100%;
+    height: 100%;
+    width: 69px;
+    height: 69px;
+    display: block; /* desconta
+    espaço  da imagem do interno e n do externo */
+    
+}
+
+.dsc-product-listing-btn { /*formatação
+    das imagens dos botões da tabela (editar e excluir*/
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+    margin: 5px; /*espaçamento entre os botões */
+}
+
+
+.dsc-date-container {
+    display: flex;
+}
+
+
+
+.dsc-btn-clean {
+    background-color: var(--color-btn-inverse);
+    color: var(--color-btn-primary);
+    border: 1px solid var(--color-btn-primary);
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .dsc-total-sales {
+        background-color: var(--color-bg-primary);
+        text-align: center;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+  }
+
+
+  .dsc-total-sales  h3 {
+    color: var(--color-font-primary);
+    font-size: 14px;
+    margin: 0 10px 0 0;
+    
+}
+
+
+  .dsc-total-sales  h4 {
+    color: var(--color-font-secondary);
+    margin: 0 10px 0 0;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 2px solid var(--color-btn-primary);
+    padding: 5px;
+}
+
+.dsc-filter-container{
+    display: flex;
+    display: grid;
+    grid-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.dsc-filter-container h4 {
+
+    margin: 0 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+
+}
+
+
+
+.dsc-filter-container button{
+    margin-left: 25px;
+    width: 100px;
+    height: 25px;
+}
+
+
+.dsc-filter-date{
+    outline: none;
+    height: 20px;
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid var(--color-btn-primary);
+    color: var(--color-font-primary);
+    padding: 5px;
+    font-size: 16px;
+    background-color: var(--color-btn-inverse);   
+    font-weight: 400;
+    text-align: center;
+ 
+}
+
+.dsc-button-next-page{
+    margin-top: 0 auto;
+    max-width: 300px;
+
+
+}
+
+.dsc-loading-container{
+    margin-left: 50px;
+    display: grid;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+
+  .dsc-product-name{
+    max-width: 200px;
+    word-break: break-word;
+  }
+
+@media(min-width: 576px) {
+
+    .dsc-loading-container{
+    display: grid;
+     margin-left: 120px;
+    grid-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+
+    .dsc-button-next-page{
+    max-width: 300px;
+    margin-left: 120px;
+   
+}
+
+    .dsc-loading-container {
+        margin-left: 470px;
+      }
+    
+
+    .dsc-total-sales  h4 {
+        font-size: 20px;
+    
+    }
+
+    .dsc-total-sales  h3 {
+        font-size: 16px;
+    }
+
+    .dsc-total-sales {
+        text-align: right;
+  }
+
+
+  
+.dsc-filter-date{
+    height: 40px;
+    width: 200px;
+}
+
+.dsc-filter-container button{
+    margin-left: 25px;
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.dsc-filter-container{
+    display: flex;
+    grid-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+}
+
+@media(min-width: 990px) {
+        .dsc-button-next-page{
+    max-width: 300px;
+    margin-left: 470px;
+   
+}
+
+}

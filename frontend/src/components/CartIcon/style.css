@@ -1,0 +1,23 @@
+
+.dsc-cart-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-font-tertiary);
+    background-color: var(--color-bg-notification);
+    width:18px;
+    height: 18px;
+    font-size: 12px;
+    border-radius: 50%; /* arredonda qualquer quadrado*/
+    position: relative;
+    top: -10px; /* isso junto com position relative coloca o item mais pra cima */
+    left: -5px; /* isso com o position relativ, coloca o item mais para esquerda */
+}
+
+.dsc-cart-count img {
+    color: var(--color-font-tertiary);
+}
+
+.dsc-menu-cart{
+    display: flex;
+}

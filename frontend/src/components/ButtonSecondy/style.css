@@ -1,0 +1,7 @@
+
+
+.dsc-btn-white {
+    background-color: var(--color-btn-inverse);
+    color: var(--color-btn-primary);
+    border: 1px solid var(--color-btn-primary);
+  }

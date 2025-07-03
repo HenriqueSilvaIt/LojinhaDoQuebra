@@ -1,0 +1,28 @@
+#product-form-section {
+    padding: 20px 0;
+}
+
+
+.dsc-product-form-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.dsc-product-form-buttons{
+    width: 100%;
+    display: grid;
+    grid-gap: 20px; /* deixar
+    um espaço entre os botões na vertical */
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); 
+    /* muda o comportamento colocando os 
+    botões um do lado do outro quando chega no 576*/
+}
+
+@media (min-width: 576px){
+    #product-form-section {
+        padding: 40px 0;
+    }
+    
+    
+}

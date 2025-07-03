@@ -1,0 +1,15 @@
+
+#admin-home-section {
+    padding: 20px 0;
+}
+
+
+.dsc-card-home  {
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+  }

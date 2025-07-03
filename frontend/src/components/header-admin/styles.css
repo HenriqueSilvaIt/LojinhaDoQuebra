@@ -1,0 +1,8 @@
+.dsc-header-admin {
+  background-color: var(--color-bg-quartenary);
+  color: var(--color-font-tertiary);
+}
+
+.dsc-menu-item  {
+  fill: #fff;
+}

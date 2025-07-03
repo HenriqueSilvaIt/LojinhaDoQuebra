@@ -1,0 +1,571 @@
+:root {
+  /* root é o admin  html*/
+
+  --color-bg-primary: #e8e8e8;
+  --color-bg-secondary: rgb(228, 5, 5);
+  --color-bg-tertiary: #636363;
+  --color-bg-quartenary: #0caf1d;
+  --color-bg-notification: #ffe500;
+
+  --color-card-bg: #fff;
+  --color-card-border: #d9d9d9;
+
+  /* se amanhã precisar mudar o fundo só dos botôes só mudar por aqui
+    por isso que repetimos as cores */
+  --color-btn-primary: #3483fa;
+  --color-btn-inverse: #fff;
+
+  --color-font-primary: #636363;
+  --color-font-secondary: #0caf1d;
+  --color-font-tertiary: #fff;
+  --color-font-quartenary: #3483fa;
+  --color-font-placeholder: #d9d9d9;
+
+  --dsc-color-error: #f33;
+}
+
+* {
+  box-sizing: border-box; /* para que a borda desconte do espaço interno e não externo */
+  padding: 0px; /*remove  margin interna*/
+  margin: 0px; /* remove margin (espaço externo) */
+  font-family: "Open Sans"; /* aqui tem que colcoar o mesmo nome que está no link,  mas sem caractere especial */
+}
+
+a,
+a:hover {
+  /* hover é quando passa o mouse em cima do link*/
+  text-decoration: none; /*  remove subilinhado*/
+  color: unset; /*remove cor da letra dos links */
+}
+
+html,
+body {
+  background-color: var(
+    --color-bg-primary
+  ); /* deixando o plano de fundo cinza */
+}
+
+main {
+  /*reseponsividade */
+  padding: 0 20px;
+}
+/*****************************************************************************/
+/*generic style */
+
+.dsc-container {
+  /*imporante o container ficar no nav(barra de navegação, para que centralize só o conteúdo
+    se ficar no header a cordo cabelaçho não pega 100% da largura, queremos centralizar só o conteúdo*/
+  width: 100%; /*para cobrir toda largura da  tela, no caso tela pequena */
+  max-width: 960px; /* deixando 960px de largura máxima se for tela grande  para o conteúdo */
+  margin: 0 auto; /* essa margin espaço externo que centraliza o conteúdo n omeio da página */
+}
+
+.dsc-mb20 {
+  /* vai ser um estilo
+    que vamos usar quando  quiser
+    colocar uma margin abaixo em alguma classe*, 
+    para  n deixar o card atrelado a ess margin
+     vai que em outra página eu queira usar o mesmo
+     card só que sem margin, então
+     poir isso é bom ter uma classe específica
+     para margn e quando quiser aplica ela  no elemento*/
+  margin-bottom: 20px;
+}
+
+.dsc-mt20 {
+  /* vai ser um estilo
+    que vamos usar quando  quiser
+    colocar uma margin abaixo em alguma classe*, 
+    para  n deixar o card atrelado a ess margin
+     vai que em outra página eu queira usar o mesmo
+     card só que sem margin, então
+     poir isso é bom ter uma classe específica
+     para margn e quando quiser aplica ela  no elemento*/
+  margin-top: 20px;
+}
+
+.dsc-section-title {
+  /*pode ser
+    utilizado como título a esquerda  no corpo  de qualquer
+    página */
+  text-align: center;
+  color: var(--color-font-primary);
+  font-size: 16px;
+}
+
+/* ajustando texto do título para ir para direita e ficar maior
+no 576 */
+@media (min-width: 576px) {
+  .dsc-section-title {
+    text-align: left;
+    font-size: 40px;
+  }
+}
+
+.dsc-text-left {
+  text-align: left;
+  /* por padrão
+     o td  é a alinhado ao centro
+
+     e o tr é a linhado a equerda */
+}
+
+/************************************************************************************************/
+
+/*Cabeçalho */
+header {
+  height: 70px;
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  align-items: center; /*alinha com o display flex o conteúdo no centro na vertical */
+  padding: 0 20px;
+}
+
+
+
+
+nav a {
+  font-size: 14px;
+
+}
+
+.dsc-logged-user {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.dsc-logged-user span {
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;  
+
+}
+nav h1 {
+  font-size: 16px;
+}
+
+/* Barra de navegação */
+nav {
+  /* border: 1px solid red; importante
+    colocar uma bordar só para 
+    fazer a centralização do
+    conteúdo no centro, ai
+     criamos um container para centralizar
+     o conteúdo na tela */
+  display: flex;
+  justify-content: space-between; /* separando
+     um contéudo do outro igual no rodapé */
+  align-items: center; /* aqui n precisa inverter o eixto
+     porque estamos alinhando ao centro na vertical, conteúdos que
+     estão na horizontal, agora se eu tivesse vários conteúdos
+     um debaixo do outro na vertical ai teria que inverter o eixo*/
+}
+
+.dsc-nav-bar-right {
+  display: flex;
+  align-items: center;
+}
+
+.dsc-menu-itens-container {
+  display: flex;
+}
+
+.dsc-menu-itens-container img {
+  width: 20px;
+  height: 20px;
+}
+
+.dsc-menu-item p {
+  margin-left: 5px;
+  display: none; /* para n aparecer na tela mobile */
+  font-size: 14px;
+}
+
+.dsc-menu-item-active {
+  /* classe para ficar em negrito o item de menu
+     no qual o usuário estiver acessando */
+  font-weight: bold;
+}
+.dsc-menu-item {
+  margin-right: 20px; /*colocando um espaçamento entre os icones do menu */
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 576px) {
+  nav h1 {
+    font-size: 24px;
+  }
+
+  .dsc-menu-item p {
+    display: unset; /* para começar aparecer os textos
+        dos itens de menu produto e inicio */
+  }
+}
+
+
+
+/*************************************************************************************/
+/*button-style*/
+
+.dsc-line-bottom {
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.dsc-btn-page-container {
+  /* botões abaixo do card dos produto */
+  width: 100%;
+  display: grid; /*grade é para criar um
+    espaço entre conteúdo na vertical */
+  grid-gap: 20px; /* tamanho do espaço entre os conteúdo do grif na vertical */
+}
+
+/* media query para responsividade */
+/* abordagem mobile fisrt (Resolver
+primeiro o first para essa
+utilizamos o min-width semp */
+@media (min-width: 576px) {
+  /* a partir dessa largura acima
+    da página a largura do botão
+    vai ser essa abaixo */
+  .dsc-btn-page-container {
+    width: 220px;
+  }
+}
+
+.dsc-btn {
+  /* botões configuração gerais*/
+  width: 100%;
+  cursor: pointer;
+  height: 42px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center; /* deixar no centero da página na horizontal */
+  align-items: center; /* deixar no centro na vertical */
+}
+
+/*botões configurações especificas */
+
+
+
+/*************************************************************************************/
+/*form-style*/
+
+.dsc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.dsc-form h2 {
+  color: var(--color-font-primary);
+  font-size: 16px;
+  text-transform: uppercase; /*deixa
+    tudo em maiúsculo */
+  font-weight: 400; /* um pouco de negrito */
+  text-align: center;
+  /* alinha o texto no centro */
+}
+
+.dsc-form-controls-container {
+  display: grid;
+  grid-gap: 20px; /* faz um
+    espaço na vertical entre os conteúdos
+     é preciso t o display grid antes */
+  margin: 20px 0;
+  width: 100%;
+}
+
+.dsc-form-controls-container::placeholder {
+  color: var(--color-font-placeholder);
+}
+
+.dsc-form-control {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 20px; /*colando
+    padding no place holder dentro
+    do formulário*/
+  color: var(--color-font-primary); /* cor da
+    fonte quando clciar*/
+  border-radius: 4px; /*arredondamento */
+  border: 1px solid var(--color-card-border);
+}
+
+.dsc-form-control:focus {
+  outline: none; /* removendo
+    contorno bord quando tiver clicado
+    na caix de text*/
+}
+
+
+/*estamos dizendo que quando o atributo do objeto input que tem essa classe 
+for igul true vai retorna essa formatação*/
+.dsc-form-control[data-dirty="true"][data-invalid="true"] { /*  só vai pintar de vermelho
+  quando tiver sujo sem preenchimento ou invaliado */
+  border: 1px solid var(--dsc-color-error);
+}
+
+.dsc-form-control::placeholder {
+  color: var(--color-font-placeholder); /*cor da fonte
+    do place holder*/
+}
+
+/* quando tiver inválido ele mostra mensagem,
+ ~div quer dizer que o próximo elemento div na frente desse
+ elemento selecionado, vamos dar o display unset, que no caso 
+ o próximo elemento do input é o div d mensagem de erro*/
+.dsc-form-control[data-dirty="true"][data-invalid="true"] ~div {
+  /*  só vai pintar de vermelho
+  quando tiver sujo sem preenchimento ou invaliado */
+  display: unset;
+}
+
+.dsc-form-error { /*mensagem  caixa vermelha se digita errado*/
+  color: var(--dsc-color-error);
+  font-size: 12px;
+  padding-left: 4px;
+  display: none;
+}
+
+.dsc-form-global-error{
+  border: 1px solid var(--dsc-color-error);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  color: var(--dsc-color-error)
+}
+
+.dsc-form-select-container {
+  padding: unset; /* para que n tenha nenhuma configuração especial
+    de padding do próprio React selecy*/
+    height: unset; /*para React selector n colocar própia altura*/
+
+}
+
+ /*
+.dsc-select:invalid {
+  /* invalid
+     é para dizer enquanto no for
+     clicacado fica com essa formatação 
+  color: var(--color-font-placeholder);
+}
+
+.dsc-select option[disabled] {
+  display: none; /* quando clicar na listinha de categoria
+    a categoria para de aparecer na lista de opções por
+    causa do disabled
+}
+
+.des-select-option {
+  color: var(--color-font-primary);
+}
+*/
+.dsc-textarea {
+  resize: none; /*retira a opção
+    de redimencionar o tamanho da caixinha com o mouse*/
+  height: 128px;
+  padding-top: 10px; /* para
+    quando digitar ficar com espaço na
+    caixa de texto */
+}
+
+@media (min-width: 576px) {
+  .dsc-form h2 {
+    font-size: 24px;
+  }
+}
+
+/*************************************************************************************/
+/*table-style*/
+
+.dsc-table {
+  width: 100%;
+  border-spacing: 0; /*retira
+    o espaçamento entre as bordas
+    da tabela */
+  border-collapse: collapse; /*
+    para n ter problema de colocar alguma
+    linha entre uma linha e a linha debaixo
+     e ocorrer de ela n aparecer */
+}
+
+.dsc-table thead {
+  /*formtação nome das colunas da tablea */
+  background-color: var(--color-card-bg);
+  height: 55px;
+  font-size: 14px;
+  /* por padrão o th que é o nome
+    da coluna da tabela, já tem negrito
+     então não precisa colocar */
+  color: var(--color-font-primary);
+}
+
+.dsc-table tbody {
+  /*formtação do corpo da tabela*/
+  text-align: center;
+  font-size: 12px;
+  background-color: var(--color-card-bg);
+  color: var(--color-font-primary);
+}
+
+.dsc-table tbody tr {
+  /* formatando
+    a linha que tiver dentro do corpo da tabela */
+  border-top: 1px solid var(--color-card-border);
+  /* colocando borda na parte do topo
+    da linha que contém os valores */
+  height: 70px; /* aqui estamos
+    colocando a altura da linha
+    como na imagem também já tem a altura
+    da linha n precisava, mas por boa
+    medida estamos colocando aqui */
+}
+
+/* no mobile a primeira coluna aparecer é a coluna do computador
+ por isso no mobile nós arredondamos a coluna 2 que é a coluna do computador
+ porque ela vai ser a prieira coluna no mobile no 576 nós mudamos o arredondamento para coluna 1 que é 
+ a coluna id */
+.dsc-table th:nth-child(2) {
+  /* pegando
+    os valores da segunda coluna o nth-child() voCê
+     coloca qual posição da coluna você quer formatar */
+  border-top-left-radius: 10px; /*
+    arredondamento  esquerda em cima e embaixo */
+}
+
+.dsc-table th:last-child {
+  /* pegando
+    os valores da segunda coluna o nth-child() voCê
+     coloca qual posição da coluna você quer formatar */
+  border-top-right-radius: 10px; /*
+    arredondamento  a direita em cima e embaixo */
+}
+
+.dsc-table td:nth-child(2) {
+  /* pegando
+    os valores da segunda coluna o nth-child() voCê
+     coloca qual posição da coluna você quer formatar */
+  padding-left: 10px;
+}
+
+.dsc-table td:last-child {
+  /* last child
+     é parecido com o nth-child, porém o last child
+     pega a última coluna da tablea */
+  padding-right: 5px;
+}
+
+.dsc-tb576 {
+  /* 576 é uma tela do bootstrap 
+breakpoints */
+  display: none; /* estilo utilizado
+    para quem estiver abaixo de 576px */
+}
+
+.dsc-tb768 {
+  /* 768 é uma tela do bootstrap 
+    breakpoints */
+  display: none; /* estilo utilizado
+        para quem estiver abaixo de 576px */
+}
+
+@media (min-width: 576px) {
+  .dsc-tb576 {
+    display: table-cell; /*
+        a partir do 576 vai ser mostrado */
+      
+  }
+
+  .dsc-table td:nth-child(1) {
+    padding-left: 20px;
+  }
+
+  .dsc-table th:nth-child(1) {
+    padding-left: 20px;
+    border-top-left-radius: 10px;
+  }
+  .dsc-table td:nth-child(2) {
+    /* pegando
+    os valores da segunda coluna o nth-child() voCê
+     coloca qual posição da coluna você quer formatar */
+    padding-left: 0px;
+  }
+}
+
+@media (min-width: 768px) {
+  .dsc-tb768 {
+    display: table-cell;
+    /*
+        a partir do 768 vai ser mostrado */
+  }
+}
+
+@media (min-width: 992px) {
+  .dsc-table tbody {
+    font-size: 16px;
+  }
+}
+
+
+
+/*************************************************************************************
+ *table-style*/
+
+.dsc-dialog-background {
+  /*macete para ocupa toda tela*/
+  position: fixed; /*fixo e as ponta embaixo zerada*/
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.5); /*colocando fundo com transparência*/
+  
+}
+
+.dsc-dialog-box {
+  /* deixando caininha de aviso no meio da tela*/
+  background-color: var(--color-card-bg);
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*ele vai ficar no centro considerando a largura dele, mesmo
+  se for um texto grande, vai fazer ficar no meio*/
+
+}
+
+
+.dsc-dialog-box h2 {
+
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: var(--color-font-primary);
+}
+
+.dsc-dialog-btn-container {
+
+  width: 100%; /* para o botão n perde largura */  
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* vai ocupar 2 metades do espaç*/
+  grid-gap: 20px;
+}
+
+
+.dsc-dialog-btn {
+
+  width: 100%; /* para o botão n perde largura */  
+}
