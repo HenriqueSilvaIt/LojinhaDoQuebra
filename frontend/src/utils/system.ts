@@ -9,7 +9,7 @@ export const TOKEN_MERCADO= "mercado.api.livre";
 export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8091";  /* se 
 
 // tiver configurado na ferramenta na nuvem a variavel, por padrão tem que ser pega
-// diretóreto de lá,  mas com oestamos rodando na máquina vamos coloc aqu 
+// diretóreto de lá,  mas com oestamos rodando na máquina vamos coloc aq
 */
 export const CLIENT_ID = import.meta.env.VITE_CLIENT_ID ?? "myclientid";
 export const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET ?? "myclientsecret";
