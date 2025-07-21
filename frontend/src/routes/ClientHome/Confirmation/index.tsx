@@ -48,7 +48,7 @@ export default function Confirmation() {
     }
 
 
-    console.log(order);
+    console.log(order?.total);
 
     return (
 

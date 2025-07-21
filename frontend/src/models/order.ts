@@ -8,7 +8,6 @@ export class OrderDTO {
 
     moment?: Date;
 
-    /* colocamos tudo como classe porque tem dado calculado */
     get total(): number{
         let sum = 0;
         this.items.forEach(item => { /*items aqui é cada objeto do OrderItemDTO
@@ -26,7 +25,6 @@ export class OrderDTO {
         })
         return sum;
     }
-
 
 }
 

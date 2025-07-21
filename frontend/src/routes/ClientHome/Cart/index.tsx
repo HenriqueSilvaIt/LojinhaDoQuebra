@@ -171,7 +171,7 @@ export default function Cart() {
         }
         setPay(value);
 
-        if (pay != undefined) {
+        if (pay != undefined && cart != undefined) {
             const newValue = cart.total - pay;
             setValueToPay(Number(newValue));
         } else if (pay === undefined || null) {
