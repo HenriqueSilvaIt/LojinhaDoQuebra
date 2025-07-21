@@ -48,6 +48,8 @@ export default function Confirmation() {
     }
 
 
+    console.log(order);
+
     return (
 
         <main>
@@ -76,6 +78,7 @@ export default function Confirmation() {
                         <div className="dsc-cart-total-container">
                             <h4>Total:</h4>
                             <h3>R$ {order.total?.toFixed(2)}</h3>
+                            
                         </div>
                     )}
                 </div>

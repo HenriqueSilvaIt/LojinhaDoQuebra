@@ -33,6 +33,8 @@ export default function Cart() {
             inputRef.current.focus(); // Define o foco no input
         }
     }, []); // Executa apenas uma vez após a renderização inicial
+        const [queryParams, setQueryParams] = useState<QueryParams>();
+
 
     const [pay, setPay] = useState<number>();
 
@@ -110,7 +112,6 @@ export default function Cart() {
 
 
 
-    const [queryParams, setQueryParams] = useState<QueryParams>();
 
     useEffect(() => {
 
@@ -179,6 +180,8 @@ export default function Cart() {
 
     }
 
+
+     console.log(cart?.total.toFixed(2));
 
     return (/* quando abrimos chaves dentro do return é uma expressão do react */
         /* no primeiro elemento dentro da função map tem que colocar o key

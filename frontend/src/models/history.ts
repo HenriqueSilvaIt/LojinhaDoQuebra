@@ -7,4 +7,5 @@ export type HistoryDTO = {
     quantity: number;
     subTotal: number;
     productId: number;
+    totalAmountForPeriod: number;
 }

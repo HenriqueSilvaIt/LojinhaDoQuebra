@@ -41,6 +41,22 @@ export function placeOrderRequest(cart: OrderDTO) {
     return requestBackend(config);
 }
 
+export function findAllCart(page: number, minDate: string, maxDate: string) {
+    const config: AxiosRequestConfig = {
+        url: `/orders/cart`,
+        method: "GET",
+        withCredentials: true,
+        params: { 
+            minDate,
+            maxDate,
+            page
+         
+
+        } 
+       // Adiciona os parâmetros à configuração da requisição
+    };
+    return requestBackend(config);
+}
 
 
 export function findAll(page: number, minDate: string, maxDate: string) {
