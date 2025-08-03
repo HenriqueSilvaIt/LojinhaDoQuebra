@@ -2,7 +2,7 @@
   /* root é o admin  html*/
 
   --color-bg-primary: #e8e8e8;
-  --color-bg-secondary: rgb(228, 5, 5);
+  --color-bg-secondary: #EEDAC2;
   --color-bg-tertiary: #636363;
   --color-bg-quartenary: #0caf1d;
   --color-bg-notification: #ffe500;
@@ -19,6 +19,7 @@
   --color-font-secondary: #0caf1d;
   --color-font-tertiary: #fff;
   --color-font-quartenary: #3483fa;
+  --color-font-quintenary: #000;
   --color-font-placeholder: #d9d9d9;
 
   --dsc-color-error: #f33;

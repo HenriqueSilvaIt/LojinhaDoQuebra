@@ -8,7 +8,7 @@ import { useContext, useEffect, useState } from 'react';
 import LoggedUser from '../LoggedUser';
 import { UserDTO } from '../../models/user';
 import * as userService from '../../services/user-service';
-import logo  from '../../assets/l-removebg-previe.png'
+import lojinhaLogo from '../../assets/lojinhadoquebra.png'
 
 export default function HeaderClient() { /* por organização a função java script aqui
     tem que ter o mesmo nome da pasta que colocamos dentro do componente HeaderClient */
@@ -35,7 +35,7 @@ export default function HeaderClient() { /* por organização a função java sc
       <nav className="dsc-container">
         <div className="dsc-logo"> 
         <Link to="/">
-          <img src={logo} alt="" /> 
+          <img src={lojinhaLogo} alt="" /> 
         </Link>
         </div>
         <div className="dsc-nav-bar-right">

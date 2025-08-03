@@ -2,9 +2,9 @@
 
 footer {
     padding: 40px 20px;
-    background-color: rgb(228, 5, 5);
+    background-color: var(--color-bg-secondary);
     min-height: 150px;
-    color: var(--color-font-tertiary);
+    color: var(--color-font-primary);
 }
 
 .footer-content {
