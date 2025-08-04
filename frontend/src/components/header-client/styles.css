@@ -9,7 +9,16 @@
     flex-wrap: wrap; /*quebra a linha
       quando estoura a largura */
   }
+  .dsc-operator-name{
+
+  align-items: center;
+  font-size: 7px;
+  color: var(--color-font-quinternary);
+  margin-right: 10px;
+  font-weight: 700;
   
+}
+
 
 @media(min-width: 576px) {
 .dsc-operator-name{
@@ -21,6 +30,7 @@
   font-weight: 700;
   
 }
+
 }
 
 
