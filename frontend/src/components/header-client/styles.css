@@ -1,7 +1,7 @@
 .dsc-header-client {
     background-color: var(--color-bg-secondary);
     color: var(--color-font-primary);
-    font-family: bold;
+    font-weight: 700;
   }
   
   .dsc-category-container {
