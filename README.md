@@ -9,7 +9,7 @@
 
 ## 📌 Descrição
 Sistema de **Ponto de Venda (PDV)** desenvolvido para uso real em comércio, com **integração direta com máquina de cartão Mercado Pago Point**, cálculo automático de troco e histórico detalhado de vendas.  
-O sistema está **em produção** e é utilizado diariamente por cliente real desde **05/2025**.
+O sistema está **em produção** e é utilizado diariamente por cliente real desde **04/2025**.
 
 ---
 
