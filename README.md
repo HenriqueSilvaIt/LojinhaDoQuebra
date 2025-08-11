@@ -29,7 +29,7 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 - **Deploy:** Oracle Cloud  
 - **Controle de versão:** Git + GitHub  
 
-![Arquitetura do Sistema](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Screenshot%202025-08-11%20123031.jpg) <!-- Substituir pelo caminho real da imagem -->
+![Arquitetura do Sistema](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Diagram.png) <!-- Substituir pelo caminho real da imagem -->
 
 ---
 
@@ -75,7 +75,7 @@ Sistema em produção desde 04/2025.
 Mais de **2400** vendas processadas até o momento.
 
 Redução de erros manuais de troco em 30%.
-Redução no tempo de calcúlo de vendas 40,4 hs/Mês
+Redução no tempo de calcúlo de vendas 40,4hs/Mês
 
 👨‍💻 **Autor**
 Henrique Oliveira da Silva
