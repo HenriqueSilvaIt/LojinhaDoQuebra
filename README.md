@@ -57,9 +57,9 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 git clone https://github.com/HenriqueSilvaIt/LojinhaDoQuebra.git
 2️⃣ Backend
 bash
-cd backend/
-cd target/
-mvnw clean install dscommerce-0.0.1-SNAPSHOT.jar :run
+cd backend/target/
+./mvnw clean install
+java -jar dscommerce-0.0.1-SNAPSHOT.jar 💻
 3️⃣ Frontend
 bash
 cd frontend
@@ -68,18 +68,21 @@ yarn dev
 
 Obs: Para ver a funcionalidade de integração com a máquina de cartão mercado point é necessário configurar variáveis
 de ambiente com credenciais do Mercado Pago (MP_ACCESS_TOKEN, MP_PUBLIC_KEY), como isso é privado essa funcionalidade não é possível visualizar.
-
-📈 Resultados
+```
+📈 **Resultados**
 Sistema em produção desde 04/2025.
 
-Mais de 2400 vendas processadas até o momento.
+Mais de **2400** vendas processadas até o momento.
 
 Redução de erros manuais de troco em 30%.
 Redução no tempo de calcúlo de vendas 40,4 hs/Mês
 
-👨‍💻 Autor
+👨‍💻 **Autor**
 Henrique Oliveira da Silva
-[![Linkedin Badge](https://img.shields.io/badge/-HenriqueSilva-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/henriqueoliveirati/)](https://www.linkedin.com/in/henriqueoliveirati/)  |  [![Gmail Badge](https://img.shields.io/badge/-hikysilva2@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:hikysilva2@gmail.com)](mailto:hikysilva2@gmail.com)
+
+**Linkendin** : [![Linkedin Badge](https://img.shields.io/badge/-HenriqueSilva-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/henriqueoliveirati/) |
+**Gmail**:
+[![Gmail Badge](https://img.shields.io/badge/-hikysilva2@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white)](mailto:hikysilva2@gmail.com)
 
 ---
 
