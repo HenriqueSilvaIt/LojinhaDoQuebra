@@ -1,5 +1,4 @@
 import './styles.css'
-import SerachBar from '../../../components/SearchBar';
 import CatalogCards from '../../../components/CatalogCards';
 import ButtonNextPage from '../../../components/ButtonNextPage';
 
@@ -12,6 +11,7 @@ import { hasAnyRoles } from '../../../services/auth-service';
 import { ContextToken } from '../../../utils/context-token';
 import image from '../../../assets/ico-whatsapp-header.svg';
 import * as authService from '../../../services/auth-service';
+import SearchCatalogBar from '../../../components/SearchCatalogBar';
 
 
 type QueryParams = {
@@ -95,7 +95,7 @@ export default function Catalog() {
 
     }
             <section id="catalog-section" className="dsc-container">
-                <SerachBar onSearch={handleSearch} placeholder="Nome do produto" />
+                <SearchCatalogBar onSearch={handleSearch}  />
                 <div className="dsc-catalog-cards dsc-mb20 dsc-mt20">
 
                     {

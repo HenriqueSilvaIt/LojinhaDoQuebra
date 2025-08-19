@@ -1,0 +1,213 @@
+.dscatalog-search-bar-container{ 
+
+    display: flex;
+    flex-direction:  column;
+ 
+}
+
+.dscatalog-serach-bar-details-container{
+
+    
+    background-color: #fff;
+    border: 1px solid #E1E1E1;
+    width: 280px;
+    border-radius:  #E1E1E1 15px; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+
+}
+
+
+
+
+.dscatalog-input-search{
+
+    display: flex;
+    justify-content: left;
+    padding: 10px 15px;
+
+}
+
+
+.dscatalog-input-search input{
+    width: 280px;
+    border: none;
+    border-bottom:#E1E1E1 1px solid;
+    outline: unset;
+}
+
+.dscatalog-input-search button{
+    
+    transform: scaleX(-1); /*virar botão
+    para o outro lado*/
+    border: none;
+    background-color: transparent;
+    border-bottom:#E1E1E1 1px solid;
+    color: #9E9E9E;
+    padding-bottom: 5px;
+    font-size: 24px;
+    cursor: pointer;
+
+
+}
+
+.dscatalog-input-search ::placeholder {
+
+    color: #9E9E9E;
+}
+.dscatalog-bar-category {
+
+    display: flex;
+    justify-content: left;
+    padding: 15px;
+    
+
+}
+
+.dscatalog-bar-category button {
+
+    text-align: center;
+    width: 111px;
+    height: 36px;
+    padding: 3px;
+    font-size: 12px;
+    color: #9E9E9E;
+    font-weight: bold;  
+    background-color: transparent;
+    border-radius:  5px;
+    outline: none;
+    border: #E1E1E1 1px solid ;
+    cursor: pointer;
+}
+
+
+
+
+.dscatalog-select{
+    
+    margin-right: 15px;
+    color: #9E9E9E;
+    width: 160px;
+    background-color: #fff;
+    border: none;
+    border-bottom: #E1E1E1 1px solid;
+  appearance: none;
+  /* remove seta padrão  do select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+    background: url('../../assets/Frame 5.png')  no-repeat right 10px center;;
+ background-size: 24px; /* controla o tamanho da seta */
+  padding-right: 35px; /* espaço para a seta */
+}
+
+
+@media(min-width: 576px) {
+
+  
+.dscatalog-search-bar-container{ 
+
+    display: flex;
+    flex-direction:  column;
+    margin-top: 20px;
+ 
+}
+
+.dscatalog-search-bar-container h2{
+
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.dscatalog-serach-bar-details-container{
+
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #E1E1E1;
+    width: 960px;
+    border-radius:  #E1E1E1 15px; 
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    
+}
+
+.dscatalog-input-search{
+
+    display: flex;
+    justify-content: left;
+    padding: 10px 15px;
+
+}
+
+
+.dscatalog-input-search input{
+    width: 320px;
+    border: none;
+    border-bottom:#E1E1E1 1px solid;
+    outline: unset;
+}
+
+.dscatalog-input-search button{
+    
+    transform: scaleX(-1); /*virar botão
+    para o outro lado*/
+    border: none;
+    background-color: transparent;
+    border-bottom:#E1E1E1 1px solid;
+    color: #9E9E9E;
+    padding-bottom: 5px;
+    font-size: 24px;
+    cursor: pointer;
+
+
+}
+
+.dscatalog-input-search ::placeholder {
+
+    color: #9E9E9E;
+}
+.dscatalog-bar-category {
+
+    display: flex;
+    justify-content: left;
+    padding: 15px;
+    
+
+}
+
+.dscatalog-bar-category button {
+
+    width: 194px;
+    height: 36px;
+    padding: 5px;
+    font-size: 12px;
+    color: #9E9E9E;
+    font-weight: bold;  
+    background-color: transparent;
+    border-radius:  5px;
+    outline: none;
+    border: #E1E1E1 1px solid ;
+    cursor: pointer;
+}
+
+.dscatalog-select{
+    
+    margin-right: 15px;
+    color: #9E9E9E;
+    width: 340px;
+    background-color: #fff;
+    border: none;
+    border-bottom: #E1E1E1 1px solid;
+  appearance: none;
+  /* remove seta padrão  do select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+    background: url('../../assets/Frame 5.png')  no-repeat right 10px center;;
+ background-size: 24px; /* controla o tamanho da seta */
+  padding-right: 35px; /* espaço para a seta */
+  outline: unset;
+}
+
+
+}
