@@ -32,6 +32,31 @@ do product-service.t*/
 
 }
 
+export function findAll(page: number, name: string, size = 12, categoryId = 0,  sort = "name") { /* 1º argumento número da página, 2º nome
+    do produto, 3º qtd de produto na página        */
+    const config : AxiosRequestConfig = { 
+        method: "GET",
+        baseURL: BASE_URL, 
+        url: "/products",
+        params: {
+            page: page,
+            name: name,
+            size: size,
+            categoryId: categoryId,
+            sort: sort
+
+        }
+    }
+    /*return axios.get(`${BASE_URL}/products/?size=12`); /*tem que importa o axios */
+
+return requestBackend(config);/* config do AxiosRequestConfi vai receber ele mesmo
+mais o baseURL, ai no caso lá no serviço do product chamado findPageRequest, não precisa mais
+colocar a varavel do BASE_URL porque já está configurada no config, é só chamar o requestBackend dentro
+do product-service.t*/
+
+}
+
+
 /* retorna o produto pelo id usando método find do java script */
 
 export function findById(id: number) {

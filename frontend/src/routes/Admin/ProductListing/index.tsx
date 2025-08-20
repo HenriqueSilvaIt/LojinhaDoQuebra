@@ -43,7 +43,7 @@
 
         useEffect(() => {
 
-            productService.findPageRequest(queryParams.page, queryParams.name) /*MÉTODO do service que vai chamar a requisição com axios */
+            productService.findAll(queryParams.page, queryParams.name) /*MÉTODO do service que vai chamar a requisição com axios */
                 /* axios.get("http://localhost:8090/products/?size=12") size é a quantidade
                 de objetos que quero que retorna dessa requisição http */
                 .then(response => { /*retorno acima é uma promisse, então vamos usar o then para dizer
