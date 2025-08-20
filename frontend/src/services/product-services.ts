@@ -8,7 +8,7 @@ import { ProductDTO } from "../models/product";
 import moment from "moment";
 /* retorna todos os produtos */
 
-export function findPageRequest(page: number, name: string, size = 12, sort = "name") { /* 1º argumento número da página, 2º nome
+export function findPageRequest(page: number, name: string, size = 12, categoryId: number,  sort = "name") { /* 1º argumento número da página, 2º nome
     do produto, 3º qtd de produto na página        */
     const config : AxiosRequestConfig = { 
         method: "GET",
@@ -18,6 +18,7 @@ export function findPageRequest(page: number, name: string, size = 12, sort = "n
             page: page,
             name: name,
             size: size,
+            categoryId,
             sort: sort
 
         }

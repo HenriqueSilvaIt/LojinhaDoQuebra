@@ -7,7 +7,6 @@ import * as productService from '../../../services/product-services'; /*importan
 todas as funções do service, com o apelido productService */
 import { useContext, useEffect, useState } from 'react';
 import { ProductDTO } from '../../../models/product';
-import { hasAnyRoles } from '../../../services/auth-service';
 import { ContextToken } from '../../../utils/context-token';
 import image from '../../../assets/ico-whatsapp-header.svg';
 import * as authService from '../../../services/auth-service';
@@ -17,10 +16,10 @@ import SearchCatalogBar from '../../../components/SearchCatalogBar';
 type QueryParams = {
     page: number;
     name: string;
+    categoryId: number;
 }
 
 export default function Catalog() {
-    console.log("T", hasAnyRoles([]));
 
     const { contextTokenPayload } = useContext(ContextToken);
 
@@ -38,12 +37,13 @@ export default function Catalog() {
 
     const [queryParams, setQueryParam] = useState<QueryParams>({
         page: 0,
-        name: ""
+        name: "",
+        categoryId: 0
     })
 
     useEffect(() => {
 
-        productService.findPageRequest(queryParams.page, queryParams.name) /*MÉTODO do service que vai chamar a requisição com axios */
+        productService.findPageRequest(queryParams.page, queryParams.name, 12, queryParams.categoryId) /*MÉTODO do service que vai chamar a requisição com axios */
             /* axios.get("http://localhost:8090/products/?size=12") size é a quantidade
             de objetos que quero que retorna dessa requisição http */
             .then(response => { /*retorno acima é uma promisse, então vamos usar o then para dizer
@@ -60,10 +60,11 @@ export default function Catalog() {
             })
     }, [queryParams]); /*sempre que mudar productName tem que refazer a consulta do useEffect*/
 
-    function handleSearch(searchText: string) {
+    function handleSearch(productName: string, categoryId: number) {
+
         setProducts([]); /* eu vou zerar a lista , para quando eu digitar ele 
         começar denovo na primeria página*/
-        setQueryParam({ ...queryParams, page: 0, name: searchText }) /* o queryParams vai receber oque tinha nele
+        setQueryParam({ ...queryParams, page: 0, name: productName, categoryId: categoryId });/* o queryParams vai receber oque tinha nele
         ... , page = 0 para quando ele for pequisar zerar a página o nome dele vai receber oque for atualizado na variavel searchText(que puxa do que está sendo
         escrito no input) quando for realizdo uma busca no SearchBar com
         a função onSearch, automaticamente ele vai chamar essa função handleSearch que vai atualizar o
@@ -87,15 +88,15 @@ export default function Catalog() {
 
 
         < main >
-        { contextTokenPayload && authService.isAuthenticated() ? 
-       <h2 className="dsc-section-title  dsc-container dsc-mb20 dsc-mt20">Estoque</h2>
-            : 
+            {contextTokenPayload && authService.isAuthenticated() ?
+                <h2 className="dsc-section-title  dsc-container dsc-mb20 dsc-mt20">Estoque</h2>
+                :
 
-            <h2 className="dsc-section-title  dsc-container dsc-mb20 dsc-mt20">Produtos</h2>
+                <h2 className="dsc-section-title  dsc-container dsc-mb20 dsc-mt20">Produtos</h2>
 
-    }
+            }
             <section id="catalog-section" className="dsc-container">
-                <SearchCatalogBar onSearch={handleSearch}  />
+                <SearchCatalogBar onSearch={handleSearch} />
                 <div className="dsc-catalog-cards dsc-mb20 dsc-mt20">
 
                     {
@@ -129,12 +130,12 @@ tem que ser um elemento único */
 
                 }
 
-                <a  className="dsc-whatsapp" aria-label="Fale pelo WhatsApp" href="https://api.whatsapp.com/send?phone=5511992643264&text=Ol%C3%A1%20Lojinha%20do%20quebra%2C%20%0A%0ATenho%20interesse%20em%20um%20produto%20%F0%9F%98%80" target="_blank"><img alt="Chat on WhatsApp" src={image} /></a>
+                <a className="dsc-whatsapp" aria-label="Fale pelo WhatsApp" href="https://api.whatsapp.com/send?phone=5511992643264&text=Ol%C3%A1%20Lojinha%20do%20quebra%2C%20%0A%0ATenho%20interesse%20em%20um%20produto%20%F0%9F%98%80" target="_blank"><img alt="Chat on WhatsApp" src={image} /></a>
             </section>
-          
+
         </main >
 
-       
+
 
 
     );

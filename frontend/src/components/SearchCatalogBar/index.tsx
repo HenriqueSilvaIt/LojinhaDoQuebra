@@ -23,6 +23,7 @@ export default function SearchCatalogBar({ onSearch }: Props) {
                 const allCategory: CategoryDTO = { id: 0, name: "Categorias" };
                 setCategories([allCategory, ...response.data]);
                 setSelectedCategory(allCategory); // Todas categorias como padrão
+                console.log(allCategory);
             })
             .catch(error => {
                 console.log("Erro ao buscar categorias", error);
@@ -46,15 +47,20 @@ export default function SearchCatalogBar({ onSearch }: Props) {
 
         const categoryId = parseInt(event.target.value, 10);
         const category = categories.find(cat => cat.id === categoryId);
+        console.log("Categoria selecionada:", categoryId, "Objeto:", category);
+
+        // Atualize o estado aqui.
         setSelectedCategory(category || null);
-        onSearch(text, category?.id);
+
+        // Agora chame a busca.
+        onSearch(text, categoryId);
     }
 
     function handleFormSubmit(event: any) {
         event.preventDefault();
         onSearch(text, selectedCategory ? selectedCategory.id : null);
+        console.log(text, selectedCategory);
     }
-
 
     return (
         <>
@@ -72,12 +78,14 @@ export default function SearchCatalogBar({ onSearch }: Props) {
                     </form>
                     <div className="dscatalog-bar-category">
                         <select className="dscatalog-select"
+
                             onChange={handleCategoryChange}
                             value={selectedCategory?.id}>
                             {categories.map(cat => (
                                 <option key={cat.id} value={cat.id}>
                                     {cat.name}
                                 </option>
+                            
                             ))}
                         </select>
                         <button name="reset" onClick={handleClickReset} >LIMPAR FILTRO</button>
