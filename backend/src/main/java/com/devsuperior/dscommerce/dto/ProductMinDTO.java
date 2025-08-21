@@ -1,8 +1,13 @@
 package com.devsuperior.dscommerce.dto;
 
+import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class ProductMinDTO {
 
@@ -14,6 +19,14 @@ public class ProductMinDTO {
     private Integer quantity;
     private LocalDate dateBuy;
     private LocalDate dueDate;
+
+
+    @NotEmpty(message = "Deve ter pelo menos uma categoria")
+    private List<CategoryDTO> categories = new ArrayList<>();
+
+    public ProductMinDTO() {
+
+    }
 
     public ProductMinDTO(Long id, String name, Double price, String imgUrl, String barCode, LocalDate dateBuy, LocalDate dueDate, Integer quantity) {
         this.id = id;
@@ -36,6 +49,14 @@ public class ProductMinDTO {
         dueDate = entity.getDueDate();
         quantity = entity.getQuantity();
     }
+    public ProductMinDTO(Product entity, Set<Category> categories) {
+        this(entity); /*chama o construtor que tem só  a entidade produto
+        e todos os atributos dele*/
+        categories.forEach(cat -> this.categories.add(new CategoryDTO(cat)));
+        /*para cada categoria do argumento, pegamos a categoria do atributo dessa classe e criamos um novo dto
+         * para categoria */
+    }
+
 
     public Long getId() {
         return id;
@@ -47,6 +68,14 @@ public class ProductMinDTO {
 
     public Double getPrice() {
         return price;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public List<CategoryDTO> getCategories() {
+        return categories;
     }
 
     public String getImgUrl() {

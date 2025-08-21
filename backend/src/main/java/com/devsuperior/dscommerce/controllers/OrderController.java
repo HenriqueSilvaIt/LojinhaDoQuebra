@@ -48,6 +48,16 @@ public class OrderController {
 
         return ResponseEntity.ok(list);
    }
+    @GetMapping(value = "/cart")
+
+    public ResponseEntity <Page<OrderDTO>> findAllCart(Pageable page) {
+
+        Page<OrderDTO> list = service.findAllCart(page);
+
+        return ResponseEntity.ok(list);
+    }
+
+
 
 
     @PreAuthorize("hasRole('ROLE_CLIENT')")

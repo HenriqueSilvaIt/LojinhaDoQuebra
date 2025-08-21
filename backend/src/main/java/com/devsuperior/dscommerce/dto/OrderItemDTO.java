@@ -27,6 +27,7 @@ public class OrderItemDTO {
 		quantity = entity.getQuantity();
 		imgUrl = entity.getProduct().getImgUrl();
 		barCode = entity.getProduct().getBarCode();
+
 	}
 
 	public Long getProductId() {
@@ -48,7 +49,11 @@ public class OrderItemDTO {
 	public Double getSubTotal() {
 		return price * quantity;
 	}
-	
+
+	public Double total() {
+		return getSubTotal() * quantity;
+	}
+
 	public String getImgUrl() {
 		return imgUrl;
 	}

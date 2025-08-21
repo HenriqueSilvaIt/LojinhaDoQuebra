@@ -55,12 +55,21 @@ public class ProductController {
     }
 
 
-    @GetMapping(params = "name")
-    public ResponseEntity<Page<ProductMinDTO>> findAll(
-            @RequestParam(name = "name", defaultValue = "") String name,
+    @GetMapping
+    public ResponseEntity <Page<ProductMinDTO>> findAllPaged(
+            @RequestParam(value = "name", defaultValue = "") String name, /*É importante
+            colocar o mesmo nome no RequestParam na variavel, e o default value
+            é se não informa qual vai ser o valor padrão*/
+            @RequestParam(value = "categoryId", defaultValue = "0") String categoryId,
             Pageable pageable) {
-        Page<ProductMinDTO> dto = service.findAll(name, pageable);
-        return ResponseEntity.ok(dto);
+
+        Page<ProductMinDTO> list = service.findAllPaged(name, categoryId, pageable);
+
+        return ResponseEntity.ok().body(list);
+        /* .body  é para definir o corpo da resposta você pode colocar
+         * o list dentro do ok, porque ele tem uma sobrecarga dentro do ok
+         * que aceita o corpo*/
+
     }
 
 /*

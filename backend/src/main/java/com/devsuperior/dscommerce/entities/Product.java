@@ -1,5 +1,7 @@
 package com.devsuperior.dscommerce.entities;
 
+import com.devsuperior.dscommerce.projections.IdProjection;
+
 import java.time.LocalDate;
 import java.util.*;
 
@@ -7,7 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_product")
-public class Product {
+public class Product implements IdProjection<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

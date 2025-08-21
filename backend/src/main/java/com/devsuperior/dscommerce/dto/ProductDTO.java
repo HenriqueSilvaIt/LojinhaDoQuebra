@@ -2,7 +2,9 @@ package com.devsuperior.dscommerce.dto;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -34,6 +36,10 @@ public class ProductDTO {
     @NotEmpty(message = "Deve ter pelo menos uma categoria")
     private List<CategoryDTO> categories = new ArrayList<>();
 
+    public ProductDTO () {
+
+    }
+
     public ProductDTO(Long id, String name, String description, Double price, String imgUrl, String barCode, LocalDate dateBuy, LocalDate dueDate, Integer quantity) {
         this.id = id;
         this.name = name;
@@ -61,6 +67,15 @@ public class ProductDTO {
         	categories.add(new CategoryDTO(cat));
         }
     }
+
+    public ProductDTO(Product entity, Set<Category> categories) {
+        this(entity); /*chama o construtor que tem só  a entidade produto
+        e todos os atributos dele*/
+        categories.forEach(cat -> this.categories.add(new CategoryDTO(cat)));
+        /*para cada categoria do argumento, pegamos a categoria do atributo dessa classe e criamos um novo dto
+         * para categoria */
+    }
+
 
     public Long getId() {
         return id;

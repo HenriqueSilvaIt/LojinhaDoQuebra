@@ -14,7 +14,6 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173")
 public class MercadoPagoController {
     @Value("${mercado-pago.device-id}")
     private String deviceId;

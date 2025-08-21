@@ -3,11 +3,13 @@ package com.devsuperior.dscommerce.services;
 import javax.persistence.EntityNotFoundException;
 
 import com.devsuperior.dscommerce.entities.OrderItem;
+import com.devsuperior.dscommerce.projections.ProductProjection;
+import com.devsuperior.dscommerce.repositories.ProductRepository;
+import com.devsuperior.dscommerce.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,9 +19,14 @@ import com.devsuperior.dscommerce.dto.ProductDTO;
 import com.devsuperior.dscommerce.dto.ProductMinDTO;
 import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
-import com.devsuperior.dscommerce.repositories.ProductRepository;
 import com.devsuperior.dscommerce.services.exceptions.DatabaseException;
 import com.devsuperior.dscommerce.services.exceptions.ResourceNotFoundException;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -42,11 +49,61 @@ public class ProductService {
     }
 
 
+    @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
-    public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
-        Page<Product> result = repository.searchByName(name, pageable);
-        return result.map(x -> new ProductMinDTO(x));
+    public Page<ProductMinDTO> findAllPaged(String name, String categoryId, Pageable pageable) {
+
+
+        /*criando vetor de string divindo posição por  ,*/
+        //String[] vetString = categoryId.split(",");
+        /*Transformando vetor de string em lista de cateegoryId formato String*/
+        List<Long> categoryIds = Arrays.asList();
+        /*VALIDA se a lista de string está vazia se n tiver
+         * vazia 0, então tem algo nela ai posso fazer a conversão em lista
+         * de cateegoryId long */
+        if(!"0".equals(categoryId)) {
+            /*Transformando a Lista de string em lista de Long*/
+            categoryIds = Arrays.asList(categoryId.split(",")).stream().map(x -> Long.parseLong(x)).toList();
+        /*parse Long.parseLong transforma transforma
+        * o elemento de string para long, é possível fazer
+        * a expressão lambada dentro do map que resume a conversão
+        *  Long::parseLong  tb funciona
+        *
+        *é possível resumir o arrays . as list dessa forma
+  List<Long> categoryIds = Arrays.asList.stream().map(Long::parseLong).toList();
+  * e também quiser eliminar a linha do vetor é possível fazer assim
+  *
+  List<Long> categoryIds = Arrays.asList(categoryId.split(",")).stream().map(Long::parseLong).toList();
+         */
+        }
+
+
+        Page<ProductProjection> page = repository.searchProduct(categoryIds, name, pageable);
+        List<Long> productIds = page.map(x -> x.getId()).stream().toList(); /*vamos pegar os ids do produtos da
+        consulta searchProduct*/
+
+        /*buscando lista de produtos com categorias, passando a lista de productsIds que encontramos
+         * na página na primeira consulta*/
+        List<Product> entities = repository.searchProductWithCategories(productIds);
+
+        /*o resultado da consulta acima está desornado
+         * com a Utils.replace abaixo estamos gerando uma nova lista enties ordenada
+         * baseada na ordernadação da página page.getContent( que o usuário colocou*/
+        entities = (List<Product>) Utils.replace(page.getContent(), entities); /*Vamos gerar nova lista
+        aproveitando o que tinha na pagina com replace, e */
+        /*convertendo a lista de produtos acima em lista de productDTO*/
+
+        List<ProductMinDTO> dtos = entities.stream().map(x -> new ProductMinDTO(x, x.getCategories())).toList();
+
+        /*Gerando uma pagina de product DTO*/
+
+        Page<ProductMinDTO> pageDTO = new PageImpl<>(dtos, page.getPageable(), page.getTotalElements());
+        /*PageImpl (instancia um novo pageable) */
+
+        return pageDTO;
     }
+
+
 
     @Transactional
     public ProductDTO insert(ProductDTO dto) {

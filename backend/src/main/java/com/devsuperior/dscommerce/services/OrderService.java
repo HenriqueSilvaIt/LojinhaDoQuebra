@@ -3,14 +3,12 @@ package com.devsuperior.dscommerce.services;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.WeekFields;
-import java.util.List;
-import java.util.Locale;
 
 
 import com.devsuperior.dscommerce.dto.HistoryDTO;
 import com.devsuperior.dscommerce.dto.HistoryPageDTO;
 import com.devsuperior.dscommerce.entities.*;
+import com.devsuperior.dscommerce.repositories.ProductRepository;
 import com.devsuperior.dscommerce.services.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -25,7 +23,6 @@ import com.devsuperior.dscommerce.dto.OrderDTO;
 import com.devsuperior.dscommerce.dto.OrderItemDTO;
 import com.devsuperior.dscommerce.repositories.OrderItemRepository;
 import com.devsuperior.dscommerce.repositories.OrderRepository;
-import com.devsuperior.dscommerce.repositories.ProductRepository;
 import com.devsuperior.dscommerce.services.exceptions.ResourceNotFoundException;
 
 @Service
@@ -130,6 +127,14 @@ public class OrderService {
 
 
         return  new HistoryPageDTO(historyPage, totalAmount);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<OrderDTO> findAllCart(Pageable page) {
+
+        Page<Order> list = repository.findAll(page);
+
+        return list.map(x -> new OrderDTO(x));
     }
 
 
