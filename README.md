@@ -11,7 +11,7 @@
 Sistema de **Ponto de Venda (PDV)** desenvolvido para uso real em comércio, com **integração com API de pagamentos**, cálculo automático de troco, histórico detalhado de vendas, impressão de cumpom de venda e etc.  
 O sistema está **em produção** e é utilizado diariamente por cliente real desde **04/2025**.
 
-[Deploy](Wwww.lojinhadoquebra.com.br)  
+[Deploy](www.lojinhadoquebra.com.br)  
 
 ---
 
