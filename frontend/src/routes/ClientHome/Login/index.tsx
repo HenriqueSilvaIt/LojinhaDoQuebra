@@ -5,7 +5,6 @@ import * as forms from '../../../utils/form';
 import { useNavigate } from 'react-router-dom';
 import { ContextToken } from '../../../utils/context-token';
 import FormInput from '../../../components/FormInput';
-import { Link } from 'react-router-dom';
 export default function Login() {
     const navigate = useNavigate();
 
@@ -138,12 +137,12 @@ export default function Login() {
 
                         <div className="dsc-login-form-buttons dsc-mt20">
                             <button type="submit" className="dsc-btn dsc-btn-blue">Entrar</button>
-
+                           {  /* suspenso por hora
                             <Link to="/register">
                                 <div className="dsc-btn dsc-btn-white dsc-mt20">
                                     Registrar
                                 </div>
-                            </Link>    
+                            </Link>   */ }
                         </div>
                     
                     </form>
