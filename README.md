@@ -33,7 +33,7 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 - **Back-end:** Java 17, Spring Boot, Spring Data JPA, Spring Security, PostgreSQL  
 - **Front-end:** ReactJS, Axios, Styled Components  
 - **Integração Pagamentos:** SDK oficial Mercado Pago  
-- **Deploy:** Railway + Heroku *(ou serviço usado)*  
+- **Deploy:** Instância na Oracle Cloud*  
 - **Controle de versão:** Git + GitHub  
 
 ![Arquitetura do Sistema](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/ChatGPT%20Image%2011%20de%20ago.%20de%202025%2C%2014_11_57.png) 
