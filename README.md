@@ -18,6 +18,7 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 ---
 
 ## 🚀 Funcionalidades
+- Leitura de código de barra
 - Registro de vendas com cálculo automático de troco.  
 - Consulta de histórico de vendas com filtros por data e produto.  
 - Integração **Mercado Pago Point** para pagamentos por cartão.
