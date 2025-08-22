@@ -46,3 +46,27 @@ export class OrderItemDTO {
         return this.price * this.quantity;
     }
 }
+
+
+export type OrderItemPixRequestDTO = {
+
+    orderId: string;
+    description: string;
+    title: string;
+
+    orders: OrderItemPixDTO [];
+
+
+}
+
+
+export class OrderItemPixDTO {
+
+    constructor( 
+        public title: string,
+        public price: number,
+        public quantity: number,
+        public subTotal: number
+
+    ) {}
+}

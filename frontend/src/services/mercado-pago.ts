@@ -3,6 +3,7 @@ import QueryString from "qs";
 import { CLIENT_MERCADO, SECRET_MERCADO } from "../utils/system";
 import * as mercadoPagoRepository from '../localstorage/mercadopago-repostory';
 import { requestMercadoPago} from '../utils/requests';
+import {  OrderItemPixRequestDTO } from "../models/order";
 
 
 const API_URL = '/mercado-pago';
@@ -113,4 +114,19 @@ export function saveAcessToken(token: string) {
 
 export function getAcessToken() {
    return  mercadoPagoRepository.get(); /* tem que ter o return porque ele  vai retorna o token*/
+}
+
+
+export function createQrCode(dto: OrderItemPixRequestDTO){
+
+    const config : AxiosRequestConfig = {
+
+        method: "POST",
+        url: `/mercadopago-qrcode`,
+        data: dto
+    
+    }
+
+    return requestMercadoPago(config);
+
 }

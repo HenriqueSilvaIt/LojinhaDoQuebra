@@ -1,18 +1,19 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import * as mercadoPagoService from '../../services/mercado-pago';
 import ButtonSecondy from "../ButtonSecondy";
 import * as cartService from '../../services/cart-services'
-import { OrderDTO } from "../../models/order";
+import { OrderDTO, OrderItemPixDTO, OrderItemPixRequestDTO } from "../../models/order";
 import './style.css';
 import loadingGif from '../../assets/loadi.gif';
 import * as paymentService from '../../services/payment-service';
+import QrCodePix from "../QrCodePix";
 
 interface PaymentProps {
     totalCartValue: number;
+    order: OrderDTO
 }
 
-export default function Payment({ totalCartValue }: PaymentProps) {
-
+export default function Payment({ totalCartValue, order }: PaymentProps) {
 
     const [instalmmentValue, setInstamentValue] = useState<any>();
     const [paymentMethod, setPaymentMethod] = useState<string>('');
@@ -20,6 +21,8 @@ export default function Payment({ totalCartValue }: PaymentProps) {
     const [paymentIntentId, setPaymentIntentId] = useState('');
     const [formattedTotalValue, setFormattedTotalValue] = useState<any>();
     const [cart, setCart] = useState<OrderDTO>(cartService.getCart());
+    const [qrCodePix, setQrCodePix] = useState<string>();
+
     const [dialogInfoData, setDialogInfoData] = useState<{
         visable: boolean;
         message: string;
@@ -68,6 +71,8 @@ export default function Payment({ totalCartValue }: PaymentProps) {
         setCart(newCart);
     }
 
+
+
     function formatTotalValue(totalValue: number): number {
         const valueInCents = totalValue * 100;
         const roundedValue = Math.round(valueInCents);
@@ -112,10 +117,43 @@ export default function Payment({ totalCartValue }: PaymentProps) {
         }
     }
 
+
+    useEffect(() => {
+
+
+        if (paymentMethod !== "pix") return; // só roda se for PIX
+        if (!order || order.items.length === 0) return; // precisa ter itens
+
+        const orderPixDTO: OrderItemPixRequestDTO = {
+            orderId: String(order.id),
+            title: "Pedido PIX",
+            description: "Compra via PIX",
+            orders: order.items.map(
+                item => new OrderItemPixDTO(item.name, item.price, item.quantity, item.subTotal)
+            )
+        };
+
+        mercadoPagoService.createQrCode(orderPixDTO)
+            .then(response => {
+                console.log("Resposta QR Pix:", response.data);
+                setQrCodePix(response.data.qr_code_string);
+                console.log(qrCodePix);
+            })
+            .catch(error => {
+                console.error("Erro ao gerar QR PIX:", error);
+            });
+
+    }, [order, paymentMethod]);
+
+
+
     function handlePaymentMethod(event: any) {
         setPaymentMethod(event.target.value);
-        const  newPaymentMethod = event.target.value;
+
+        const newPaymentMethod = event.target.value;
         paymentService.savePayment(newPaymentMethod);
+
+
     }
 
     function handleInstalment(event: any) {
@@ -125,10 +163,10 @@ export default function Payment({ totalCartValue }: PaymentProps) {
 
     const handleDialogPayment = (confirm: boolean) => {
         setDialogInfoData({ ...dialogInfoData, visable: false });
-
+        
         console.log(confirm);
     };
-    
+
     return (
 
         <div className="dsc-payment-form">
@@ -139,7 +177,7 @@ export default function Payment({ totalCartValue }: PaymentProps) {
                     <option value="debit_card">Cartão de débito</option>
                     <option value="credit_card">Cartão de crédito</option>
                     <option value="Dinheiro">Dinheiro</option>
-                    <option value="pi">Pix</option>
+                    <option value="pix">Pix</option>
 
                 </select>
             </div>
@@ -163,6 +201,11 @@ export default function Payment({ totalCartValue }: PaymentProps) {
                 </div> : ""
 
             }
+
+            {paymentMethod === "pix" && qrCodePix && 
+                <QrCodePix qrCode={qrCodePix} onDialogClose={() => setQrCodePix(undefined)} />
+            }
+
             <button className="dsc-btn dsc-btn-blue" onClick={handlePagamento}>Realizar Cobrança</button>
             {dialogInfoData.visable && (
                 <div className="dsc-dialog-background">
