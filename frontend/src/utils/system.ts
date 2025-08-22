@@ -11,13 +11,11 @@ export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:80
 // tiver configurado na ferramenta na nuvem a variavel, por padrão tem que ser pega
 // diretóreto de lá,  mas com oestamos rodando na máquina vamos coloc aq
 */
-export const CLIENT_ID = import.meta.env.VITE_CLIENT_ID ?? "myclientid";
-export const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET ?? "myclientsecret";
+export const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+export const CLIENT_SECRET = import.meta.env.VITE_CLIENT_SECRET;
 
-export const ACCESS_TOKEN_M = import.meta.env.VITE_ACCESS_TOKEN_MERCADO ?? "APP_USR-227308504402034-040212-16e7bfeb51ef4698d52250027fb5065b-333058261";
+export const CLIENT_MERCADO = import.meta.env.VITE_CLIENT_MERCADO;
+export const SECRET_MERCADO = import.meta.env.VITE_SECRET_MERCADO;
+export const MERCADO_URL = import.meta.env.VITE_MERCADO_URL; 
 
-export const CLIENT_MERCADO = import.meta.env.VITE_CLIENT_MERCADO ?? "227308504402034";
-export const SECRET_MERCADO = import.meta.env.VITE_SECRET_MERCADO ?? "sQk5vli1Cqmxey3Lqv8BxeXyffCSFwwx";
-export const MERCADO_URL = import.meta.env.VITE_MERCADO_URL ?? "https://api.mercadopago.com/oauth/token"; 
-
-export const DEVICE_ID = import.meta.env.VITE_DEVICE_ID ?? "NEWLAND_N950__N950NCB901528800"; 
+export const DEVICE_ID = import.meta.env.VITE_DEVICE_ID; 

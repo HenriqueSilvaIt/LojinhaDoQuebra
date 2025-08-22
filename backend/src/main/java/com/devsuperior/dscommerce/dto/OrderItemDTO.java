@@ -4,13 +4,13 @@ import com.devsuperior.dscommerce.entities.OrderItem;
 
 public class OrderItemDTO {
 
-	private Long productId;
-	private String name;
-	private Double price;
-	private Integer quantity;
-	private String imgUrl;
-	private String barCode;
-	
+		private Long productId;
+		private String name;
+		private Double price;
+		private Integer quantity;
+		private String imgUrl;
+		private String barCode;
+
 	public OrderItemDTO(Long productId, String name, Double price, Integer quantity, String imgUrl, String barCode) {
 		this.productId = productId;
 		this.name = name;

@@ -1,5 +1,6 @@
 package com.devsuperior.dscommerce.services;
 
+import com.devsuperior.dscommerce.repositories.MercadoPagoRepository;
 import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,8 @@ public class MercadoPagoAuthService {
     @Value("${mercado-pago.client-secret}")
     private String clientSecret;
 
+
+
     private final WebClient webClient;
 
     public MercadoPagoAuthService(WebClient.Builder webClientBuilder) {
@@ -50,4 +53,7 @@ public class MercadoPagoAuthService {
                 .map(response -> (String) response.get("access_token"));
 
     }
+
+
+
 }

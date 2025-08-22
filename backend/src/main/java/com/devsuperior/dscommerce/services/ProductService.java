@@ -76,9 +76,11 @@ public class ProductService {
   List<Long> categoryIds = Arrays.asList(categoryId.split(",")).stream().map(Long::parseLong).toList();
          */
         }
+        int pageNumber = 0; // primeira página
+        int pageSize = 10;  // número de registros por página
+        Pageable pageImpl = PageRequest.of(pageNumber, pageSize);
 
-
-        Page<ProductProjection> page = repository.searchProduct(categoryIds, name, pageable);
+            Page<ProductProjection> page = repository.searchProduct(categoryIds, name, pageImpl);
         List<Long> productIds = page.map(x -> x.getId()).stream().toList(); /*vamos pegar os ids do produtos da
         consulta searchProduct*/
 

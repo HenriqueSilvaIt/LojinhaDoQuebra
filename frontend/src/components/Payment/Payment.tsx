@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as mercadoPagoService from '../../services/mercado-pago';
+import * as mercadoPagoService from '../../services/mercado-pago-service';
 import ButtonSecondy from "../ButtonSecondy";
 import * as cartService from '../../services/cart-services'
 import { OrderDTO, OrderItemPixDTO, OrderItemPixRequestDTO } from "../../models/order";

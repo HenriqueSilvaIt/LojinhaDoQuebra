@@ -26,7 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
        tb_product.due_date as dueDate,
        tb_product.quantity
    FROM tb_product
-   INNER JOIN tb_product_category
+   LEFT JOIN tb_product_category
    ON tb_product.id = tb_product_category.product_id
    WHERE ((:categoryIds) IS NULL OR tb_product_category.category_id IN (:categoryIds))
    AND LOWER(tb_product.name) LIKE LOWER(CONCAT('%', :name, '%'))
@@ -35,7 +35,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             countQuery = """
 SELECT COUNT(DISTINCT tb_product.id)
 FROM tb_product
-INNER JOIN tb_product_category
+LEFT JOIN tb_product_category
 ON tb_product.id = tb_product_category.product_id
 WHERE ((:categoryIds) IS NULL OR tb_product_category.category_id IN (:categoryIds))
 AND LOWER(tb_product.name) LIKE LOWER(CONCAT('%', :name, '%'))
