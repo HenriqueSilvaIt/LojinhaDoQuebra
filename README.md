@@ -61,10 +61,6 @@ Mais de 2.500 vendas processadas até o momento.
 
 Redução de erros manuais em 20%.
 
-```bash
-
-```
-
 **👨‍💻 Autor**
 
 Henrique Oliveira da Silva
