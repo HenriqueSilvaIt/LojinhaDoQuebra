@@ -130,15 +130,18 @@ nav a {
 
 }
 
-.dsc-logged-user {
-  font-size: 12px;
+.dsc-logged-user p {
+  font-size: 8px;
   display: none;
   flex-direction: column;
 }
 
 
+
+
 .dsc-logged-user span {
   font-size: 12px;
+  display: flex;
   font-weight: 700;
   cursor: pointer;  
 
