@@ -38,8 +38,8 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 ## 📸 Capturas de tela
 <!-- Substituir pelos prints reais -->
 ![Caixa](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/CaixaLivre.png)  
-![Gestão de Produtos]([docs/gestao-produtos.png](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Cadastro.png))  
-![Histórico de Vendas]([docs/historico-vendas.png](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Hist%C3%B3rico%20de%20venda%20%20com%20produt.png)  
+![Gestão de Produtos](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Cadastro.png)  
+![Histórico de Vendas](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/Hist%C3%B3rico%20de%20venda%20%20com%20produt.png)  
 
 ---
 
