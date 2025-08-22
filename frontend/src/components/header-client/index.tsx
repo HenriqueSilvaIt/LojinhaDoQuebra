@@ -64,7 +64,7 @@ export default function HeaderClient() { /* por organização a função java sc
             </div>
           { contextTokenPayload && authService.isAuthenticated() /*se existir o token e se tiver autenticado vai retornar o usuário logado*/
                        &&   <div className="dsc-operator-name">
-              <p > Operador de caixa: {user?.name}</p>
+              <p > Operador: {user?.name}</p>
         </div>}
             
                            

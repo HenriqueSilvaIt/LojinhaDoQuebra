@@ -80,7 +80,40 @@ export default function Payment({ totalCartValue, order }: PaymentProps) {
     }
 
     const handlePagamento = () => {
+
+
+
+
         updateCart();
+
+        if (paymentMethod === "pix") {
+            if (!order || order.items.length === 0) {
+                console.error("Pedido inválido");
+                return;
+            }
+       
+
+        const orderPixDTO: OrderItemPixRequestDTO = {
+            orderId: String(order.id),
+            title: "Pedido PIX",
+            description: "Compra via PIX",
+            orders: order.items.map(
+                item => new OrderItemPixDTO(item.name, item.price, item.quantity, item.subTotal)
+            )
+        };
+
+        mercadoPagoService.createQrCode(orderPixDTO)
+            .then(response => {
+                console.log("Resposta QR Pix:", response.data);
+                setQrCodePix(response.data.qr_code_string);
+                console.log(qrCodePix);
+            })
+            .catch(error => {
+                console.error("Erro ao gerar QR PIX:", error);
+            });
+
+             return;
+        }
         if (paymentMethod === 'credit_card' || paymentMethod === 'debit_card') {
             if (typeof cart.total !== 'number' || isNaN(cart.total)) {
                 console.error('Valor total do carrinho inválido:', cart.total);
@@ -114,7 +147,9 @@ export default function Payment({ totalCartValue, order }: PaymentProps) {
             console.error('Selecione uma forma de pagamento.');
             setDialogInfoData({ visable: true, message: 'Selecione uma forma de pagamento.' });
 
-        }
+        } 
+
+
     }
 
 
@@ -124,27 +159,8 @@ export default function Payment({ totalCartValue, order }: PaymentProps) {
         if (paymentMethod !== "pix") return; // só roda se for PIX
         if (!order || order.items.length === 0) return; // precisa ter itens
 
-        const orderPixDTO: OrderItemPixRequestDTO = {
-            orderId: String(order.id),
-            title: "Pedido PIX",
-            description: "Compra via PIX",
-            orders: order.items.map(
-                item => new OrderItemPixDTO(item.name, item.price, item.quantity, item.subTotal)
-            )
-        };
 
-        mercadoPagoService.createQrCode(orderPixDTO)
-            .then(response => {
-                console.log("Resposta QR Pix:", response.data);
-                setQrCodePix(response.data.qr_code_string);
-                console.log(qrCodePix);
-            })
-            .catch(error => {
-                console.error("Erro ao gerar QR PIX:", error);
-            });
-
-    }, [order, paymentMethod]);
-
+    }, []);
 
 
     function handlePaymentMethod(event: any) {
@@ -163,7 +179,7 @@ export default function Payment({ totalCartValue, order }: PaymentProps) {
 
     const handleDialogPayment = (confirm: boolean) => {
         setDialogInfoData({ ...dialogInfoData, visable: false });
-        
+
         console.log(confirm);
     };
 
@@ -202,7 +218,7 @@ export default function Payment({ totalCartValue, order }: PaymentProps) {
 
             }
 
-            {paymentMethod === "pix" && qrCodePix && 
+            {paymentMethod === "pix" && qrCodePix &&
                 <QrCodePix qrCode={qrCodePix} onDialogClose={() => setQrCodePix(undefined)} />
             }
 

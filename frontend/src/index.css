@@ -132,13 +132,13 @@ nav a {
 
 .dsc-logged-user {
   font-size: 12px;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
 
 .dsc-logged-user span {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;  
 
@@ -204,6 +204,22 @@ nav {
     display: unset; /* para começar aparecer os textos
         dos itens de menu produto e inicio */
   }
+
+  
+  
+.dsc-logged-user {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.dsc-logged-user span {
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;  
+
+}
 }
 
 
