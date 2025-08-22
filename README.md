@@ -8,20 +8,21 @@
 ---
 
 ## 📌 Descrição
-Sistema de **Ponto de Venda (PDV)** desenvolvido para uso real em comércio, com **integração direta com máquina de cartão Mercado Pago Point**, cálculo automático de troco e histórico detalhado de vendas.  
-O sistema está **em produção** e é utilizado diariamente por cliente real desde **MÊS/ANO**.
+Sistema de **Ponto de Venda (PDV)** desenvolvido para uso real em comércio, com **integração com API de pagamentos**, cálculo automático de troco, histórico detalhado de vendas, impressão de cumpom de venda e etc.  
+O sistema está **em produção** e é utilizado diariamente por cliente real desde **04/2025**.
 
 [Deploy](Wwww.lojinhadoquebra.com.br)  
-
 
 ---
 
 ## 🚀 Funcionalidades
 - Registro de vendas com cálculo automático de troco.  
 - Consulta de histórico de vendas com filtros por data e produto.  
-- Integração **Mercado Pago Point** para pagamentos por cartão.  
-- Interface web responsiva para operação em desktop ou tablet.  
-- Painel administrativo para gestão de produtos e preços.  
+- Integração **Mercado Pago Point** para pagamentos por cartão.
+- Integração para Pagamento com QR-CODE PIX.  
+- Interface web responsiva para operação em desktop ou mobile.  
+- Painel administrativo para gestão de produtos e preços.
+- Impressão de cupom de venda
 
 ---
 
@@ -47,7 +48,7 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 
 ### 1️⃣ Clonar repositório
 
-git clone https://github.com/SEUUSUARIO/pdv-mercadopago.git
+git clone https://github.com/HenriqueSilvaIt/LojinhaDoQuebra.git
 
 ## 📈 Resultados
 
@@ -55,7 +56,7 @@ Sistema em produção desde 04/2025.
 
 Mais de 2.500 vendas processadas até o momento.
 
-Redução de erros manuais de troco em 20%.
+Redução de erros manuais em 20%.
 
 ```bash
 
