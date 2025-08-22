@@ -35,7 +35,7 @@ O sistema está **em produção** e é utilizado diariamente por cliente real de
 - **Deploy:** Railway + Heroku *(ou serviço usado)*  
 - **Controle de versão:** Git + GitHub  
 
-[![Arquitetura do Sistema](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/ChatGPT%20Image%2011%20de%20ago.%20de%202025%2C%2014_11_57.png) 
+![Arquitetura do Sistema](https://github.com/HenriqueSilvaIt/Assets/blob/main/l/ChatGPT%20Image%2011%20de%20ago.%20de%202025%2C%2014_11_57.png) 
 ---
 
 ## 📸 Capturas de tela
